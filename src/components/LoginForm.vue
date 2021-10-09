@@ -21,8 +21,8 @@
                   class="mx-auto"
                 >
                   <v-text-field
-                    v-model="firstname"
-                    :rules="nameRules"
+                    v-model="username"
+                    :rules="usernameRules"
                     :counter="15"
                     label="Username"
                     required
@@ -66,7 +66,7 @@
         md="4"
         class="d-flex justify-center mx-auto"
       >
-        <a href="/register">Belum punya akun ? login sini ngab</a>
+        <a href="/register">Belum punya akun ? daftar sini ngab</a>
       </v-col>
     </v-row>
   </v-container>
@@ -76,16 +76,15 @@
   export default {
     data: () => ({
       valid: false,
-      firstname: '',
-      lastname: '',
-      nameRules: [
-        v => !!v || 'Username is required',
-        v => v.length <= 15 || 'Username must be less than 15 characters',
+      username: '',
+      usernameRules: [
+        v => !!v || 'Username wajib diisi',
+        v => v.length <= 15 || 'Username maksimal 15 karakter',
       ],
       email: '',
       emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
+        v => !!v || 'E-mail wajib diisi',
+        v => /.+@.+/.test(v) || 'E-mail tidak valid',
       ],
     }),
   }
